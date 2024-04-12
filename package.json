@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "@types/nodemon": "^1.19.6",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2"
   }
 }
