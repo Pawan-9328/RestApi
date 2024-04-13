@@ -8,6 +8,7 @@ const _config = {
     
     //NODE_ENV for identified it's production else development 
     env: process.env.NODE_ENV,
+    jwtSecret: process.env.JWT_SECRET, 
  
 };
 
