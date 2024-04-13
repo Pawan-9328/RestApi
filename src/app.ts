@@ -1,11 +1,9 @@
 import express from "express";
 import globalErrorHandler from "./middlewares/globalErrorHandler";
-
-
+import userRouter from "./user/userRouter";
 
 
 const app = express();
-
 
 app.get('/', (req, res, next)=>{
 
@@ -16,6 +14,12 @@ app.get('/', (req, res, next)=>{
    
     res.json({message: "Welcome to elib apis"});
 });
+
+// register the router 
+app.use('/api/users',userRouter);
+
+
+
 
 //..Global Error handler used here 
 // pass only ref can't need call because is middlwares 
