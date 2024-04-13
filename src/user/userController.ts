@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
-import usermodel from "./usermodel";
+import bcrypt, { genSalt } from 'bcrypt';
+import userModel from "./userModel";
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   //for testing
@@ -17,12 +18,18 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   }
   //Database call 
  //email: email - key object both are some so used only email it's work fine
-  const user = await usermodel.findOne({email});
+  const user = await userModel.findOne({email});
 
   if(user) {
      const error = createHttpError(400, "User already exists with this email.");
      return next(error);
   }
+
+  //password->hash 
+  //salt - random string 
+  
+  const hashedPassword = await bcrypt.hash(password,10); 
+   
 
   res.json({ message: "User created" });
 };
