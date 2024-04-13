@@ -5,6 +5,9 @@ import userRouter from "./user/userRouter";
 
 const app = express();
 
+//it's middlware used for json passing 
+app.use(express.json());
+
 app.get('/', (req, res, next)=>{
 
     //create an error 
